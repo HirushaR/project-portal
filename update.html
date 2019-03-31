@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title></title>
+
+        <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+        <script src="init.js"></script>
+
+    </head>
+    <body>
+        <h3>UPDATE MY PROFILE</h3>
+
+        <form name="createProfile" onsubmit="">
+            <div class="user-photo">
+                <!--user-photo has to come here--> 
+                <input type="file" id="userphoto">              
+            </div>
+            <div class="user-name">
+                <label>User Name</label>
+                <input type="text" id="username" >
+            </div>
+			    <input type="text" id="fname" name="FirstName" placeholder="First Name">
+		    	<input type="text" id="lname" name="LastName" placeholder="Last Name"><br><br>
+			<div class="email-add">
+                <label>Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Your Email"tabindex="2" ><br>	
+            </div>
+            <div class="batch">	
+
+                <p>Select your batch:</p>
+                	<select name="batch" id="batch" required>
+			    	    <option value="19.2">19.2</option>
+				        <option value="19.1">19.1</option>
+			        	<option value="18.2">18.2</option>
+			        	<option value="18.1">18.1</option>
+		        		<option value="17.2">17.2</option>
+				        <option value="17.1">17.1</option>
+		        		<option value="16.2">16.2</option>
+				        <option value="16.1">16.1</option>
+			</select>
+             </div>
+
+            <div class="degree">	
+            <p>Select your degree:</p>
+    	        <select name="degree" id="degree" required>
+                     <!--ane degree tika mthka na-->
+                        <option value="19.2">19.2</option>
+                        <option value="19.1">19.1</option>
+                        <option value="18.2">18.2</option>
+                        <option value="18.1">18.1</option>
+                        <option value="17.2">17.2</option>
+                        <option value="17.1">17.1</option>
+                        <option value="16.2">16.2</option>
+                        <option value="16.1">16.1</option>
+				</select>
+            </div>
+			<div>Birthday <br>
+                <input type="date" id="bday" name="bday"><br><br>
+                <input type="radio" id="gender" name="gender" value="Male">Male
+                <input type="radio" id="gender" name="gender" value="Female">Female
+                <input type="radio" id="gender" name="gender" value="Other">Other 
+                <br>
+            </div>
+            <div>
+                    <button type="reset">cancel</button>            
+                    <input type="button" value="submit" onclick="sendArticle()"><br>
+                    
+            </div>
+     </form> 
+     <script src="createprofilesend.js"></script>
+    </body>
+</html>

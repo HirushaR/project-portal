@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title></title>
+
+        <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+        <script src="init.js"></script>
+
+        <script>
+            function getAllUrlParams(url) {
+              var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+              var obj = {};
+            
+              if (queryString) {
+                queryString = queryString.split('#')[0];
+                var arr = queryString.split('&');
+            
+                for (var i = 0; i < arr.length; i++) {
+                  var a = arr[i].split('=');
+                  var paramName = a[0];
+                  var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+            
+                  paramName = paramName.toLowerCase();
+                  if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+            
+                  if (paramName.match(/\[(\d+)?\]$/)) {
+                    var key = paramName.replace(/\[(\d+)?\]/, '');
+                    if (!obj[key]) obj[key] = [];
+            
+                    if (paramName.match(/\[\d+\]$/)) {
+                      var index = /\[(\d+)\]/.exec(paramName)[1];
+                      obj[key][index] = paramValue;
+                    } else {
+                      obj[key].push(paramValue);
+                    }
+                  } else {
+                    if (!obj[paramName]) {
+                      obj[paramName] = paramValue;
+                    } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+                      obj[paramName] = [obj[paramName]];
+                      obj[paramName].push(paramValue);
+                    } else {
+                      obj[paramName].push(paramValue);
+                    }
+                  }
+                }
+              }
+            
+              return obj;
+            }
+            
+            var params = document.getElementById('params');
+            var results = document.getElementById('results');
+            
+            document.querySelector('input').addEventListener('keyup', function() {
+              params.innerText = this.value;
+              results.innerText = JSON.stringify(getAllUrlParams("http://test.com/?" + this.value), null, 2);
+            });</script>
+
+
+
+
+
+
+    </head>
+    <body>
+        <h3>LET'S CREATE MY PROFILE</h3>
+
+        <form name="createProfile" onsubmit="">
+            <div class="user-photo">
+                <!--user-photo has to come here--> 
+                <input type="file" id="userphoto">              
+            </div>
+            <div class="user-name">
+                <label>User Name</label>
+                <input type="text" id="username" >
+            </div>
+			    <input type="text" id="fname" name="FirstName" placeholder="First Name">
+		    	<input type="text" id="lname" name="LastName" placeholder="Last Name"><br><br>
+			<div class="email-add">
+                <label>Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Your Email"tabindex="2" ><br>	
+            </div>
+            <div class="batch">	
+
+                <p>Select your batch:</p>
+                	<select name="batch" id="batch" required>
+			    	    <option value="19.2">19.2</option>
+				        <option value="19.1">19.1</option>
+			        	<option value="18.2">18.2</option>
+			        	<option value="18.1">18.1</option>
+		        		<option value="17.2">17.2</option>
+				        <option value="17.1">17.1</option>
+		        		<option value="16.2">16.2</option>
+				        <option value="16.1">16.1</option>
+			</select>
+             </div>
+
+            <div class="degree">	
+            <p>Select your degree:</p>
+    	        <select name="degree" id="degree" required>
+                     <!--ane degree tika mthka na-->
+                        <option value="19.2">19.2</option>
+                        <option value="19.1">19.1</option>
+                        <option value="18.2">18.2</option>
+                        <option value="18.1">18.1</option>
+                        <option value="17.2">17.2</option>
+                        <option value="17.1">17.1</option>
+                        <option value="16.2">16.2</option>
+                        <option value="16.1">16.1</option>
+				</select>
+            </div>
+			<div>Birthday <br>
+                <input type="date" id="bday" name="bday"><br><br>
+                <input type="radio" id="gender" name="gender" value="Male">Male
+                <input type="radio" id="gender" name="gender" value="Female">Female
+                <input type="radio" id="gender" name="gender" value="Other">Other 
+                <br>
+            </div>
+            <div>
+                    <button type="reset">cancel</button>            
+                    <input type="button" value="submit" onclick="send()"><br>
+                    
+            </div>
+     </form> 
+     <script src="createprofile.js"></script>
+    </body>
+</html>

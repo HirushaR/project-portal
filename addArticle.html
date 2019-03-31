@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>first project </title>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+      <script src="init.js"></script>
+
+    <style media="screen">
+      body{
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+    </style>
+
+
+  </head>
+  <body>
+    <div id="nameqwe">
+      <form >
+        
+        <input type="text" name="title" id="title" placeholder="Title"><br>
+        <textarea name="details" id="details" rows="8" cols="80"></textarea><br>
+        <input type="file"  id="files" name="files[]" multiple />
+        <input type="button" value="submit" onclick="sendArticle()"><br>
+      </form>
+        <script src="sendArticle.js"></script>
+
+    </div>
+
+  </body>
+</html>

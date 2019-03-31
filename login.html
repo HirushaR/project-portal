@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>login</title>
+
+        <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+        <script src="init.js"></script>
+
+
+
+
+    </head>
+    <body>
+        <h2>WELCOME</h2>
+        <div>
+        <form name="login" id="" >
+            <div class="email">
+                <label>Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div class="password">
+                    <label>Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+
+                
+                    <!--we have to keep a link to user go to reset his passsword throug his email by cliking on the PASSWORD -->
+                    <!-- <a href="forgotpassword.html">passsword</a>?-->
+        
+                 
+            <div>
+                <input type="button" value="login" onclick="search()"><br>
+            </div>
+
+            <div>
+                <!--sign up link for those who don't have an account-->
+                Don't have an account ? <a href="signup.html">SignUp</a>!
+            </div>
+          </form>
+          <script src="login.js"></script>
+
+        </div>
+    </body>
+
+</html>
