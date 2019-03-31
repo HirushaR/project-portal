@@ -27,14 +27,14 @@
   </head>
   <body>
     <div id="nameqwe">
-      <form >
+      <form  enctype="multipart/form-data">
         <input type="text" name="name" id="name" placeholder="name"><br>
         <input type="text" name="title" id="title" placeholder="title"><br>
         <input type="text" name="category" id="category" placeholder="category"><br>
         <textarea name="discription" id="dis" rows="8" cols="80"></textarea><br>
         <input type="text" name="note" id="note" value=""><br>
         <input type="file"  id="files" name="files[]" multiple />
-        <input type="button" value="submit" onclick="send()"><br>
+        <input type="button" value="submit" id="fileButton" onclick="send()"><br>
       </form>
         <script src="sendProject.js"></script>
 
